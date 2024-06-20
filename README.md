@@ -23,6 +23,7 @@ Ensure you have OpenCascade installed in your Python environment. You can instal
 
 ```sh
 pip install opencascade-python
+```
 
 ## Structure
 OpenCascade_Boolean_Operations/
