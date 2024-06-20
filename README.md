@@ -1,5 +1,3 @@
-Sure, here is the content for a `README.md` file for your GitHub repository:
-
 # Parallelization of Boolean Operations Using OpenCascade
 
 This document explains how to perform and parallelize boolean operations using OpenCascade, specifically focusing on generating conformal volumes by embedding a surface within a volume. The goal is to ensure the mesh is connected at the interface, which is particularly useful for Fluid-Structure Interaction (FSI) modeling.
@@ -211,5 +209,3 @@ if __name__ == "__main__":
 
 This document should help you understand and implement parallelized boolean fuse operations using OpenCascade, ensuring the resulting shapes have a conformal mesh suitable for FSI modeling.
 ```
-
-To use this `README.md` file, copy the above content into a file named `README.md` and place it in the root directory of your GitHub repository. This will provide a comprehensive guide for users on how to perform and parallelize boolean operations using OpenCascade.
