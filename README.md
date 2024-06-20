@@ -26,7 +26,9 @@ pip install opencascade-python
 ```
 
 ## Structure
+```
 OpenCascade_Boolean_Operations/
 │
 ├── boolean_operations.py
 ├── README.md
+```
