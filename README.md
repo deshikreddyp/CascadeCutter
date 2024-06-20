@@ -208,4 +208,3 @@ if __name__ == "__main__":
 ```
 
 This document should help you understand and implement parallelized boolean fuse operations using OpenCascade, ensuring the resulting shapes have a conformal mesh suitable for FSI modeling.
-```
